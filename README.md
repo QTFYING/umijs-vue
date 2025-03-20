@@ -13,6 +13,7 @@
 - [ ] vue3 + ts + pinia + element-plus + echarts + quill2
 - [ ] axios封装 + service请求示例
 - [ ] 权限管理
+- [ ] 接入tailwindcss
 - [ ] proxy代理
 - [ ] 环境区分（pro、env、rel）
 - [ ] 打包配置（vite & webpack）

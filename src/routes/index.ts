@@ -2,7 +2,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: '@/pages/login.vue'
+    component: '@/pages/login/index.vue'
   },
   {
     path: '/',

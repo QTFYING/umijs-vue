@@ -6,7 +6,7 @@ export async function getRoutes() {
   return {
     routes,
     routeComponents: {
-'1': () => import(/* webpackChunkName: "p__login" */'@/pages/login.vue'),
+'1': () => import(/* webpackChunkName: "p__login__index" */'@/pages/login/index.vue'),
 '2': () => import(/* webpackChunkName: "layouts__index" */'@/layouts/index.vue'),
 '3': () => import(/* webpackChunkName: "wrappers__index" */'@/wrappers/index.vue'),
 '4': () => import(/* webpackChunkName: "p__home__index" */'@/pages/home/index.vue'),

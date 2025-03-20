@@ -1,4 +1,5 @@
 import Antd from 'ant-design-vue';
+import ElementPlus from 'element-plus';
 import { createPinia } from 'pinia';
 import { i18n } from './i18n';
 import { useGlobalStore } from './stores/global';
@@ -30,6 +31,7 @@ export async function onAppCreated({ app }: any) {
     app.use(Antd);
     app.use(createPinia())
     app.use(i18n)
+    app.use(ElementPlus)
 }
 
 export async function onMounted({ app, router }: any) {

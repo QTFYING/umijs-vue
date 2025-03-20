@@ -28,7 +28,7 @@
         "src/.umi/*"
       ],
       "umi": [
-        "../../node_modules/.pnpm/umi@4.4.6_@babel+core@7.23.6_@types+node@22.13.10_eslint@8.57.1_jest@29.7.0_@types+node_055acebf398109795be58bdd7afc90ac/node_modules/umi"
+        "../../node_modules/.pnpm/umi@4.4.6_@babel+core@7.26.10_@types+node@22.13.10_eslint@8.57.1_jest@29.7.0_@types+nod_b6e3d13562d2fde83bf201c884b95b1a/node_modules/umi"
       ],
       "umi/typings": [
         "src/.umi/typings"
