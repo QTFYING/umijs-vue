@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-12 09:49:35
- */
 import request from '@/utils/request';
 
 /**

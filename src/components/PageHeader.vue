@@ -1,8 +1,3 @@
-<!--
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-08 10:42:36
--->
 <template>
     <div class="page-header-box">
         <a-row>

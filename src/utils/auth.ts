@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-19 13:38:13
- */
 import { useUserStore } from "@/stores/user";
 import { notification } from "ant-design-vue";
 import { i18n } from "../i18n";

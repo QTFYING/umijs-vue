@@ -1,8 +1,3 @@
-<!--
- * @Description: 用户信息
- * @Author: wangzhicheng
- * @Date: 2022-08-16 09:49:28
--->
 <template>
     <a-modal
         :visible="visible"

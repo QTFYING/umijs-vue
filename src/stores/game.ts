@@ -1,8 +1,3 @@
-/*
- * @Description: 游戏管理
- * @Author: wangzhicheng
- * @Date: 2022-08-10 11:25:59
- */
 import { Dictionary } from '@/constants';
 import { defineStore } from 'pinia';
 import * as commonServ from '../services/common';

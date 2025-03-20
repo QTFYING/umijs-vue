@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-05 13:19:54
- */
 export default [
   {
     path: '/login',

@@ -1,9 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-18 09:25:34
- */
-
 import localeGame from '../locales/locale/game/zh-CN'
 import localeUser from '../locales/locale/user/zh-CN'
 

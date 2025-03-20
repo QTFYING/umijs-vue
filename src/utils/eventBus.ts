@@ -1,8 +1,3 @@
-/*
- * @Description: 监听事件
- * @Author: wangzhicheng
- * @Date: 2022-08-17 09:41:49
- */
 import { EventEmitter } from 'events';
 
 export default new EventEmitter();

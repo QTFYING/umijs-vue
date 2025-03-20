@@ -1,8 +1,3 @@
-<!--
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-09-02 13:22:19
--->
 <template>
     <div class="query-box">
         <slot />

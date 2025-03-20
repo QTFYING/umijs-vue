@@ -1,8 +1,3 @@
-<!--
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-25 13:41:57
--->
 <template>
     <a-result status="404" title="404" :sub-title="t('page.notFind')">
         <template #extra>

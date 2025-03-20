@@ -1,9 +1,3 @@
-/*
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-08-08 16:36:09
- */
-
 export const defaultLang = 'enUS'
 
 export enum LocaleLang {

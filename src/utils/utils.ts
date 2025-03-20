@@ -1,8 +1,3 @@
-/*
- * @Description: 公共方法
- * @Author: wangzhicheng
- * @Date: 2021-03-30 19:19:22
- */
 import moment from 'moment';
 const datemonth = 'YYYY-MM'
 export const dateformat = 'YYYY-MM-DD'
@@ -10,8 +5,8 @@ export const datetime = 'YYYY-MM-DD HH:mm:ss';
 
 /**
  * 验证手机号
- * @param phone 
- * @returns 
+ * @param phone
+ * @returns
  */
 export function validatePhone(phone) {
 	const reg = /^1[3456789]\d{9}$/
@@ -20,8 +15,8 @@ export function validatePhone(phone) {
 
 /**
  * 验证ip
- * @param phone 
- * @returns 
+ * @param phone
+ * @returns
  */
 export function validateIP(phone) {
 	const reg = /((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}/g
@@ -30,8 +25,8 @@ export function validateIP(phone) {
 
 /**
  * 验证密码
- * @param pwd 
- * @returns 
+ * @param pwd
+ * @returns
  */
 export function validatePwd(pwd) {
 	const len = pwd.length
@@ -44,7 +39,7 @@ export function validatePwd(pwd) {
 
 /**
  * 正整数
- * @param value 
+ * @param value
  */
 export function validateNum(value) {
 	const reg = /^\+?[1-9][0-9]*$/;
@@ -53,8 +48,8 @@ export function validateNum(value) {
 
 /**
  * 整数
- * @param value 
- * @returns 
+ * @param value
+ * @returns
  */
 export function validateInt(value) {
 	const reg = /^\-{0,1}[0-9]{1,}$/;
@@ -63,8 +58,8 @@ export function validateInt(value) {
 
 /**
  * 数字，可以有小数点
- * @param value 
- * @returns 
+ * @param value
+ * @returns
  */
 export function validateFloat(value) {
 	const reg = /^-?\d+(,\d{3})*(\.\d{1,20})?$/
@@ -86,9 +81,9 @@ export function timeStr(momentObj) {
 
 /**
  * unix转日期
- * @param time 
+ * @param time
  * @param isHour 是否显示时分秒
- * @returns 
+ * @returns
  */
 export function unixToStr(time: number, isHour = false) {
 	if (!time || time === 0) return '--'
@@ -97,8 +92,8 @@ export function unixToStr(time: number, isHour = false) {
 
 /**
  * 日期转unix
- * @param dateStr 
- * @returns 
+ * @param dateStr
+ * @returns
  */
 export function strToUnix(dateStr: string) {
 	return moment(dateStr).unix()

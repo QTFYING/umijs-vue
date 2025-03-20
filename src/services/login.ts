@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-05 15:51:02
- */
 import request from '@/utils/request';
 
 export async function login(params: {

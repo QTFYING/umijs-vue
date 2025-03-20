@@ -1,8 +1,3 @@
-/*
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-08-05 14:39:51
- */
 export interface LoginParamsType {
     username: string;
     password: string;

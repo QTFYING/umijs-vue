@@ -1,8 +1,3 @@
-/*
- * @Description: request
- * @Author: wangzhicheng
- * @Date: 2022-04-11 18:00:19
- */
 import { ResultVO } from "@/types/common";
 import eventBus, { EVENT_TYPE } from "@/utils/eventBus";
 import { notification } from 'ant-design-vue';

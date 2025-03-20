@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-08 14:26:07
- */
 import request from '@/utils/request';
 
 export async function getManagerInfo(

@@ -1,13 +1,8 @@
-/*
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-08-18 10:32:56
- */
 import { onBeforeUnmount } from "vue";
 
 /**
  * 在整个窗口滚动
- * @param isScroll 
+ * @param isScroll
  */
 export default function useScroll(isScroll) {
     function handleScroll(e) {

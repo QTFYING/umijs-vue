@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-09 13:25:35
- */
 import { defaultLang } from '@/constants'
 import { defineStore } from 'pinia'
 

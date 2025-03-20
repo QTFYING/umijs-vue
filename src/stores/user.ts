@@ -1,9 +1,3 @@
-/*
- * @Description: 用户管理
- * @Author: wangzhicheng
- * @Date: 2022-08-08 11:36:50
- */
-
 import { Dictionary } from '@/constants'
 import { defineStore } from 'pinia'
 import { Md5 } from 'ts-md5'

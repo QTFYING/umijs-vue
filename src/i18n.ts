@@ -1,9 +1,3 @@
-/*
- * @Description: 国际化
- * @Author: wangzhicheng
- * @Date: 2022-08-19 13:28:45
- */
-
 import { defaultLang } from '@/constants';
 import { createI18n } from 'vue-i18n';
 import enUS from './locales/en-US';

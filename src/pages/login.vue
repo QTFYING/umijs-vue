@@ -1,38 +1,21 @@
 <template>
     <div class="login-form-box">
         <h1 style="margin-bottom: 50px">{{ t("login.title") }}</h1>
-        <a-form
-            :model="formState"
-            layout="vertical"
-            name="basic"
-            autocomplete="off"
-            @finish="onFinish"
-            @finishFailed="onFinishFailed"
-        >
-            <a-form-item
-                :label="t('login.username')"
-                name="username"
-                :rules="[{ required: true, message: t('login.message.username') }]"
-            >
+        <a-form :model="formState" layout="vertical" name="basic" autocomplete="off" @finish="onFinish"
+            @finishFailed="onFinishFailed">
+            <a-form-item :label="t('login.username')" name="username"
+                :rules="[{ required: true, message: t('login.message.username') }]">
                 <a-input v-model:value="formState.username" size="large" />
             </a-form-item>
 
-            <a-form-item
-                :label="t('login.password')"
-                name="password"
-                :rules="[{ required: true, message: t('login.message.password') }]"
-            >
+            <a-form-item :label="t('login.password')" name="password"
+                :rules="[{ required: true, message: t('login.message.password') }]">
                 <a-input-password v-model:value="formState.password" size="large" />
             </a-form-item>
 
             <a-form-item>
-                <a-button
-                    type="primary"
-                    html-type="submit"
-                    size="large"
-                    :loading="user.loginLoading"
-                    >{{ t("login.button.login") }}</a-button
-                >
+                <a-button type="primary" html-type="submit" size="large" :loading="user.loginLoading">{{
+                    t("login.button.login") }}</a-button>
             </a-form-item>
         </a-form>
     </div>
@@ -44,14 +27,9 @@ import useLocale from "@/utils/useLocale";
 import { Md5 } from "ts-md5";
 import { useRouter } from "umi";
 import { reactive } from "vue";
-const {
-    i18n: { t },
-} = useLocale();
+const { i18n: { t }, } = useLocale();
 
-interface FormState {
-    username: string;
-    password: string;
-}
+interface FormState { username: string; password: string; }
 const user = useUserStore();
 const router = useRouter();
 

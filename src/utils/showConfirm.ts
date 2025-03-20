@@ -1,9 +1,3 @@
-/*
- * @Description: 弹出框
- * @Author: wangzhicheng
- * @Date: 2022-08-08 16:42:45
- */
-
 import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { Modal } from 'ant-design-vue';
 import { createVNode, VNode } from 'vue';

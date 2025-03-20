@@ -1,8 +1,3 @@
-/*
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-08-18 09:25:34
- */
 export default {
     game: {
         query: {

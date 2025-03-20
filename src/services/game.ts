@@ -1,8 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-12 09:27:24
- */
 import { IGame } from '@/types/game';
 import request from '@/utils/request';
 

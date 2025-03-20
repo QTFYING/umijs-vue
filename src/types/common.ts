@@ -1,8 +1,3 @@
-/*
- * @Description: 
- * @Author: wangzhicheng
- * @Date: 2022-08-05 15:56:43
- */
 export type ResultVO = {
     code: number | string;
     data: any;

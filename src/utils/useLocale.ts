@@ -1,9 +1,3 @@
-/*
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-18 10:32:56
- */
-
 import { useGlobalStore } from "@/stores/global";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";

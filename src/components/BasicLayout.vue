@@ -1,8 +1,3 @@
-<!--
- * @Description:
- * @Author: wangzhicheng
- * @Date: 2022-08-08 10:02:22
--->
 <template>
   <PageHeader />
   <a-layout class="page-layout">

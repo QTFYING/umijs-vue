@@ -1,8 +1,3 @@
-<!--
- * @Description: 游戏管理
- * @Author: wangzhicheng
- * @Date: 2022-08-08 16:50:39
--->
 <template>
   <QueryContainer>
     <a-card v-if="user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
