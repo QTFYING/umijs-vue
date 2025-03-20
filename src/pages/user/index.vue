@@ -1,20 +1,4 @@
 <template>
-  <QueryContainer>
-    <a-card v-if="user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
-      <a-form layout="inline" :model="formState">
-        <a-form-item name="queryValue">
-          <a-input-search allowClear v-model:value="formState.queryValue" :placeholder="t('user.query.placeholder')"
-            style="width: 300px" enter-button @search="onFinish" />
-        </a-form-item>
-        <a-button type="primary" @click="handleToAdd" style="margin-left: 30px">
-          <template #icon>
-            <PlusOutlined />
-          </template>
-          {{ t("user.button.add") }}
-        </a-button>
-      </a-form>
-    </a-card>
-  </QueryContainer>
   <a-card style="margin-top: 10px">
     <a-table :dataSource="user.userList" :columns="columns" :pagination="pagination" :loading="user.loading"
       :scroll="{ x: 1200 }" size="small">
@@ -43,15 +27,14 @@
   </a-card>
   <CreateFormVue :opt="opt" :visible="visible" :userInfo="userInfo" @onClose="onClose" />
 </template>
+
 <script lang="ts" setup>
-import QueryContainer from "@/components/query_container.vue";
 import { Dictionary } from "@/constants";
 import { useGameStore } from "@/stores/game";
 import { useUserStore } from "@/stores/user";
 import { isAdmin } from "@/utils/auth";
 import { showConfirm } from "@/utils/showConfirm";
 import useLocale from "@/utils/useLocale";
-import { PlusOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import type { UnwrapRef } from "vue";
 import { computed, onBeforeUnmount, reactive, ref, watch } from "vue";

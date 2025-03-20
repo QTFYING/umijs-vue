@@ -1,10 +1,10 @@
-import { defaultLang } from '@/constants'
-import { defineStore } from 'pinia'
+import { defaultLang } from '@/constants';
+import { defineStore } from 'pinia';
 
 export const useAppStore = defineStore('global', {
   state: () => ({
     selectedKeys: ['/home'], // 菜单展开
-    locale: localStorage.getItem('locale') || defaultLang
+    locale: localStorage.getItem('locale') || defaultLang,
   }),
 
   actions: {
@@ -12,10 +12,10 @@ export const useAppStore = defineStore('global', {
      * 修改selectedKeys值
      */
     setSelectedKeys(key) {
-      this.selectedKeys[0] = key
+      this.selectedKeys[0] = key;
     },
     changeLocale(value) {
-      this.locale = value
-    }
+      this.locale = value;
+    },
   },
-})
+});

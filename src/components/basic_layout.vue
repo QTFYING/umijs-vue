@@ -1,5 +1,4 @@
 <template>
-
   <el-container>
     <PageHeader />
 
@@ -7,43 +6,39 @@
       <!-- <div class="logo" /> -->
       <el-menu v-model:selectedKeys="global.selectedKeys" @click="handleClick">
         <el-menu-item index="1">
-          <span>{{ t("menu.home") }}</span>
+          <span>{{ t('menu.home') }}</span>
         </el-menu-item>
 
         <el-menu-item index="2">
-          <span>{{ t("menu.monitor") }}</span>
+          <span>{{ t('menu.monitor') }}</span>
         </el-menu-item>
 
         <el-menu-item index="3">
-          <span>{{ t("menu.app") }}</span>
+          <span>{{ t('menu.app') }}</span>
         </el-menu-item>
 
         <el-menu-item index="4">
-          <span>{{ t("menu.server") }} </span>
+          <span>{{ t('menu.server') }} </span>
         </el-menu-item>
 
         <el-menu-item index="5">
-          <span>{{ t("menu.billingPoint") }}</span>
+          <span>{{ t('menu.billingPoint') }}</span>
         </el-menu-item>
 
         <el-menu-item index="6">
-          <span>{{ t("menu.agent") }}</span>
+          <span>{{ t('menu.agent') }}</span>
         </el-menu-item>
 
         <el-menu-item index="7">
-          <span>{{ t("menu.service") }}</span>
+          <span>{{ t('menu.service') }}</span>
         </el-menu-item>
 
-        <el-menu-item index="8" v-if="
-          !!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'
-        ">
-          <span>{{ t("menu.game") }}</span>
+        <el-menu-item index="8" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
+          <span>{{ t('menu.game') }}</span>
         </el-menu-item>
 
-        <el-menu-item index="9" v-if="
-          !!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'
-        ">
-          <span>{{ t("menu.user") }}</span>
+        <el-menu-item index="9" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
+          <span>{{ t('menu.user') }}</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
@@ -52,28 +47,30 @@
       <slot></slot>
     </el-main>
   </el-container>
-
 </template>
+
 <script lang="ts" setup>
-import { useGlobalStore } from "@/stores/global";
-import { useUserStore } from "@/stores/user";
-import useLocale from "@/utils/useLocale";
-import type { MenuProps } from "ant-design-vue";
-import { useRouter } from "umi";
-import { ref } from "vue";
-import PageHeader from "./page_header.vue";
+  import { useGlobalStore } from '@/stores/global';
+  import { useUserStore } from '@/stores/user';
+  import useLocale from '@/utils/useLocale';
+  import type { MenuProps } from 'ant-design-vue';
+  import { useRouter } from 'umi';
+  import { ref } from 'vue';
+  import PageHeader from './page_header.vue';
 
-const { i18n: { t } } = useLocale();
+  const {
+    i18n: { t },
+  } = useLocale();
 
-const global = useGlobalStore();
-const router = useRouter();
-let collapsed = ref<boolean>(false);
+  const global = useGlobalStore();
+  const router = useRouter();
+  let collapsed = ref<boolean>(false);
 
-const user = useUserStore();
+  const user = useUserStore();
 
-const handleClick: MenuProps["onClick"] = (e) => {
-  router.push(`${e.key}`);
-};
+  const handleClick: MenuProps['onClick'] = (e) => {
+    router.push(`${e.key}`);
+  };
 </script>
 
 <style lang="less"></style>

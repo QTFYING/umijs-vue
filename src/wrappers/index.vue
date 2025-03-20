@@ -1,22 +1,22 @@
 <template>
-    <BasicLayout v-if="!!user.currentUser || !!user.token">
-        <router-view></router-view>
-    </BasicLayout>
+  <BasicLayout v-if="!!user.currentUser || !!user.token">
+    <router-view></router-view>
+  </BasicLayout>
 </template>
 
 <script lang="ts" setup>
-import { useUserStore } from "@/stores/user";
-import { useRouter } from 'umi';
-import BasicLayout from "../components/basic_layout.vue";
+  import { useUserStore } from '@/stores/user';
+  import { useRouter } from 'umi';
+  import BasicLayout from '../components/basic_layout.vue';
 
-const user = useUserStore()
-const router = useRouter()
+  const user = useUserStore();
+  const router = useRouter();
 
-if (!user.currentUser) {
+  if (!user.currentUser) {
     if (user.token) {
-        user.getManagerInfo()
+      user.getManagerInfo();
     } else {
-        router.replace('/login')
+      router.replace('/login');
     }
-}
+  }
 </script>

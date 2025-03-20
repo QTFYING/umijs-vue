@@ -6,14 +6,10 @@ import { IGame } from '@/types/game';
  * @param params
  * @returns
  */
-export async function findGameListPage(params: {
-    page: number,
-    row: number,
-    queryValue: string,
-}) {
-    return $ajax('/game/findGameListPage', {
-        data: params,
-    });
+export async function findGameListPage(params: { page: number; row: number; queryValue: string }) {
+  return $ajax('/game/findGameListPage', {
+    data: params,
+  });
 }
 
 /**
@@ -22,9 +18,9 @@ export async function findGameListPage(params: {
  * @returns
  */
 export async function addGame(params: IGame) {
-    return $ajax('/game/addGame', {
-        data: params,
-    });
+  return $ajax('/game/addGame', {
+    data: params,
+  });
 }
 
 /**
@@ -33,9 +29,9 @@ export async function addGame(params: IGame) {
  * @returns
  */
 export async function upateGame(params: IGame) {
-    return $ajax('/game/upateGame', {
-        data: params,
-    });
+  return $ajax('/game/upateGame', {
+    data: params,
+  });
 }
 
 /**
@@ -43,24 +39,20 @@ export async function upateGame(params: IGame) {
  * @param params
  * @returns
  */
-export async function findGameById(params: {
-    id: string,
-}) {
-    return $ajax('/game/findGameById', {
-        data: params,
-    });
+export async function findGameById(params: { id: string }) {
+  return $ajax('/game/findGameById', {
+    data: params,
+  });
 }
 /**
  * 删除游戏
  * @param params
  * @returns
  */
-export async function deleteGameById(params: {
-    id: string,
-}) {
-    return $ajax('/game/deleteGameById', {
-        data: params,
-    });
+export async function deleteGameById(params: { id: string }) {
+  return $ajax('/game/deleteGameById', {
+    data: params,
+  });
 }
 
 /**
@@ -68,11 +60,10 @@ export async function deleteGameById(params: {
  * @param params
  * @returns
  */
-export async function findGameList(params: {
-}) {
-    return $ajax('/game/findGameList', {
-        data: params,
-    });
+export async function findGameList(params: {}) {
+  return $ajax('/game/findGameList', {
+    data: params,
+  });
 }
 
 /**
@@ -80,9 +71,8 @@ export async function findGameList(params: {
  * @param params
  * @returns
  */
-export async function findGamesByManager(params: {
-}) {
-    return $ajax('/manager/findGamesByManager', {
-        data: params,
-    });
+export async function findGamesByManager(params: {}) {
+  return $ajax('/manager/findGamesByManager', {
+    data: params,
+  });
 }

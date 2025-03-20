@@ -1,29 +1,29 @@
-import { onBeforeUnmount } from "vue";
+import { onBeforeUnmount } from 'vue';
 
 /**
  * 在整个窗口滚动
  * @param isScroll
  */
 export default function useScroll(isScroll) {
-    function handleScroll(e) {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-        const clientHeight = document.documentElement.clientHeight
-        const scrollHeight = document.documentElement.scrollHeight
+  function handleScroll(e) {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
 
-        if (scrollTop + clientHeight >= scrollHeight) {
-            isScroll.value = true
-        } else {
-            isScroll.value = false
-        }
+    if (scrollTop + clientHeight >= scrollHeight) {
+      isScroll.value = true;
+    } else {
+      isScroll.value = false;
     }
+  }
 
-    window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll);
 
-    onBeforeUnmount(() => {
-        window.removeEventListener('scroll', handleScroll)
-    })
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+  });
 
-    return isScroll
+  return isScroll;
 }
 
 /**
@@ -31,16 +31,15 @@ export default function useScroll(isScroll) {
  * @param currentRef 层的ref
  */
 export function useScrollDiv(currentRef) {
-    const scrollTop = currentRef.value.scrollTop
-    const clientHeight = currentRef.value.clientHeight + 1
-    const scrollHeight = currentRef.value.scrollHeight
+  const scrollTop = currentRef.value.scrollTop;
+  const clientHeight = currentRef.value.clientHeight + 1;
+  const scrollHeight = currentRef.value.scrollHeight;
 
-    let isScroll = false
-    if (scrollTop + clientHeight >= scrollHeight) {
-        isScroll = true
-    } else {
-        isScroll = false
-    }
-    return isScroll
+  let isScroll = false;
+  if (scrollTop + clientHeight >= scrollHeight) {
+    isScroll = true;
+  } else {
+    isScroll = false;
+  }
+  return isScroll;
 }
-

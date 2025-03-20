@@ -1,4 +1,4 @@
-import { $ajax } from "@/services/request";
+import { $ajax } from '@/services/request';
 
 /**
  * 字典
@@ -6,7 +6,7 @@ import { $ajax } from "@/services/request";
  * @returns
  */
 export async function findDictByCode(params: { dictCode: string }) {
-    return $ajax('/system/findDictByCode', {data: params, method});
+  return $ajax('/system/findDictByCode', { data: params, method });
 }
 
 /**
@@ -14,10 +14,8 @@ export async function findDictByCode(params: { dictCode: string }) {
  * @param params
  * @returns
  */
-export async function findDictByCodeByGms(params: {
-    dictCode: string,
-}) {
-    return $ajax('/game/dict/findDictByCode', {
-        data: params,
-    });
+export async function findDictByCodeByGms(params: { dictCode: string }) {
+  return $ajax('/game/dict/findDictByCode', {
+    data: params,
+  });
 }

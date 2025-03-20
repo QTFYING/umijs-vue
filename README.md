@@ -9,7 +9,7 @@
 - [ ] 国际化配置（vue-i18n）
 - [x] mock方案
 - [ ] vue3 + ts + pinia + element-plus + echarts + quill2
-- [ ] axios封装 + service请求示例
+- [x] axios封装 + service请求示例
 - [ ] 权限管理
 - [ ] 接入tailwindcss
 - [ ] proxy代理

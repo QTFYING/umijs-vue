@@ -1,15 +1,18 @@
 module.exports = {
   // extends: require.resolve('umi/eslint'),
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
+  ecmaVersion: 2020,
   extends: ['eslint:recommended', 'plugin:vue/vue3-recommended'],
   plugins: ['vue'],
   rules: {
-    // 示例规则：禁止在代码中使用 console
+    // 禁止在代码中使用 console
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    // 示例规则：强制组件名称为多单词
+    // 强制组件名称为多单词
     'vue/multi-word-component-names': 'error',
-    // 示例规则：不允许在模板中使用 v-html，以防止 XSS 攻击
+    // 不允许在模板中使用 v-html，以防止 XSS 攻击
     'vue/no-v-html': 'error',
+    // 设置 <script> 标签内容缩进为2个空格
+    'vue/script-indent': ['error', 2, { baseIndent: 1 }],
   },
 
   // 设置哪些文件或目录应该被忽略
