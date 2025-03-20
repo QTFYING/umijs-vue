@@ -1,9 +1,9 @@
-import request from '@/utils/request';
+import { $ajax } from "@/services/request";
 
 export async function getManagerInfo(
     params: {}
 ) {
-    return request('/manager/getManagerInfo', {
+    return $ajax('/manager/getManagerInfo', {
         data: params,
     });
 }
@@ -17,7 +17,7 @@ export async function findManagerListPage(params: {
     row: number,
     queryValue: string,
 }) {
-    return request('/manager/findManagerListPage', {
+    return $ajax('/manager/findManagerListPage', {
         data: params,
     });
 }
@@ -39,7 +39,7 @@ export async function addManager(params: {
     headImg: string,
     managerList: string,
 }) {
-    return request('/manager/addManager', {
+    return $ajax('/manager/addManager', {
         data: params,
     });
 }
@@ -62,7 +62,7 @@ export async function upateManager(params: {
     headImg: string,
     managerList: string,
 }) {
-    return request('/manager/upateManager', {
+    return $ajax('/manager/upateManager', {
         data: params,
     });
 }
@@ -75,7 +75,7 @@ export async function upateManager(params: {
 export async function findManagerById(params: {
     id: string,
 }) {
-    return request('/manager/findManagerById', {
+    return $ajax('/manager/findManagerById', {
         data: params,
     });
 }
@@ -87,7 +87,7 @@ export async function findManagerById(params: {
 export async function deleteManagerById(params: {
     id: string,
 }) {
-    return request('/manager/deleteManagerById', {
+    return $ajax('/manager/deleteManagerById', {
         data: params,
     });
 }

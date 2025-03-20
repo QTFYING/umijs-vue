@@ -3,14 +3,8 @@
     <a-card v-if="user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
       <a-form layout="inline" :model="formState">
         <a-form-item name="queryValue">
-          <a-input-search
-            allowClear
-            v-model:value="formState.queryValue"
-            :placeholder="t('user.query.placeholder')"
-            style="width: 300px"
-            enter-button
-            @search="onFinish"
-          />
+          <a-input-search allowClear v-model:value="formState.queryValue" :placeholder="t('user.query.placeholder')"
+            style="width: 300px" enter-button @search="onFinish" />
         </a-form-item>
         <a-button type="primary" @click="handleToAdd" style="margin-left: 30px">
           <template #icon>
@@ -22,33 +16,19 @@
     </a-card>
   </QueryContainer>
   <a-card style="margin-top: 10px">
-    <a-table
-      :dataSource="user.userList"
-      :columns="columns"
-      :pagination="pagination"
-      :loading="user.loading"
-      :scroll="{ x: 1200 }"
-      size="small"
-    >
+    <a-table :dataSource="user.userList" :columns="columns" :pagination="pagination" :loading="user.loading"
+      :scroll="{ x: 1200 }" size="small">
       <template #bodyCell="{ column, text, record }">
         <template v-if="column.dataIndex === 'operation' && user.currentUser">
           <a-space>
-            <a
-              @click="handleToEdit(record)"
-              v-if="
-                record.username !== 'superadmin' ||
-                user.currentUser.username === 'superadmin'
-              "
-              >{{ t("button.edit") }}</a
-            >
-            <a
-              @click="handleDel(record)"
-              v-if="
-                record.username !== user.currentUser.username &&
-                record.username !== 'superadmin'
-              "
-              >{{ t("button.delete") }}</a
-            >
+            <a @click="handleToEdit(record)" v-if="
+              record.username !== 'superadmin' ||
+              user.currentUser.username === 'superadmin'
+            ">{{ t("button.edit") }}</a>
+            <a @click="handleDel(record)" v-if="
+              record.username !== user.currentUser.username &&
+              record.username !== 'superadmin'
+            ">{{ t("button.delete") }}</a>
           </a-space>
         </template>
         <template v-else-if="column.dataIndex === 'roleValue'">
@@ -61,27 +41,21 @@
       </template>
     </a-table>
   </a-card>
-  <CreateFormVue
-    :opt="opt"
-    :visible="visible"
-    :userInfo="userInfo"
-    @onClose="onClose"
-  />
+  <CreateFormVue :opt="opt" :visible="visible" :userInfo="userInfo" @onClose="onClose" />
 </template>
 <script lang="ts" setup>
+import QueryContainer from "@/components/query_container.vue";
+import { Dictionary } from "@/constants";
 import { useGameStore } from "@/stores/game";
 import { useUserStore } from "@/stores/user";
+import { isAdmin } from "@/utils/auth";
 import { showConfirm } from "@/utils/showConfirm";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons-vue";
-import { message, notification } from "ant-design-vue";
+import useLocale from "@/utils/useLocale";
+import { PlusOutlined } from "@ant-design/icons-vue";
+import { message } from "ant-design-vue";
+import type { UnwrapRef } from "vue";
 import { computed, onBeforeUnmount, reactive, ref, watch } from "vue";
 import CreateFormVue from "./components/CreateForm.vue";
-import QueryContainer from "@/components/QueryContainer.vue";
-import type { UnwrapRef } from "vue";
-import useLocale from "@/utils/useLocale";
-import { title } from "process";
-import { isAdmin } from "@/utils/auth";
-import { Dictionary } from "@/constants";
 const {
   i18n: { t },
 } = useLocale();

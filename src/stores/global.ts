@@ -8,12 +8,10 @@ export const useGlobalStore = defineStore('global', {
 	}),
 
 	actions: {
-		/**
-		 * 修改selectedKeys值
-		 */
 		setSelectedKeys(key) {
 			this.selectedKeys[0] = key
 		},
+
 		changeLocale(value) {
 			this.locale = value
 		}

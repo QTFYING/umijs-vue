@@ -1,3 +1,22 @@
 module.exports = {
-  extends: require.resolve('umi/eslint'),
-}
+  // extends: require.resolve('umi/eslint'),
+  parser: 'babel-eslint',
+  extends: ['eslint:recommended', 'plugin:vue/vue3-recommended'],
+  plugins: ['vue'],
+  rules: {
+    // 示例规则：禁止在代码中使用 console
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 示例规则：强制组件名称为多单词
+    'vue/multi-word-component-names': 'error',
+    // 示例规则：不允许在模板中使用 v-html，以防止 XSS 攻击
+    'vue/no-v-html': 'error',
+  },
+
+  // 设置哪些文件或目录应该被忽略
+  ignorePatterns: ['node_modules/', 'dist/', '.eslint.js'],
+
+  // 设置全局变量，这样 ESLint 就不会报错说这些变量未定义
+  globals: {
+    jQuery: 'readonly',
+  },
+};

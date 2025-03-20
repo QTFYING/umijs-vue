@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import BasicLayout from "../components/BasicLayout.vue";
 import { useUserStore } from "@/stores/user";
 import { useRouter } from 'umi';
+import BasicLayout from "../components/basic_layout.vue";
 
 const user = useUserStore()
 const router = useRouter()

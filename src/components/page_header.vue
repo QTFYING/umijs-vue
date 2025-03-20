@@ -31,8 +31,8 @@
                         <div>
                             <a class="ant-dropdown-link" @click.prevent>
                                 <span class="lang-txt">{{
-                                LocaleLang[currentLocale]
-                                }}</span>
+                                    LocaleLang[currentLocale]
+                                    }}</span>
                             </a>
                         </div>
                         <template #overlay>
@@ -46,10 +46,9 @@
                     <a-dropdown>
                         <div class="avatar-box">
                             <a class="ant-dropdown-link" @click.prevent>
-                                <a-avatar class="avatar" :src="
-                                    user.currentUser?.headImg ||
+                                <a-avatar class="avatar" :src="user.currentUser?.headImg ||
                                     'https://joeschmoe.io/api/v1/random'
-                                "></a-avatar>
+                                    "></a-avatar>
                                 <span class="name">{{ user.currentUser?.username }}</span>
                             </a>
                         </div>
@@ -76,18 +75,21 @@
             </a-col>
         </a-row>
     </div>
+
 </template>
+
 <script lang="ts" setup>
+import { LocaleLang } from "@/constants";
 import { useAppStore } from "@/stores/app";
 import { useGameStore } from "@/stores/game";
 import { useServerStore } from "@/stores/server";
-import { CaretDownOutlined, LogoutOutlined, SearchOutlined } from "@ant-design/icons-vue";
-import type { MenuProps } from "ant-design-vue";
-import { ref } from "vue";
-import { LocaleLang } from "@/constants";
 import { useUserStore } from "@/stores/user";
 import eventBus, { EVENT_TYPE } from "@/utils/eventBus";
 import useLocale from "@/utils/useLocale";
+import { CaretDownOutlined, LogoutOutlined, SearchOutlined } from "@ant-design/icons-vue";
+import type { MenuProps } from "ant-design-vue";
+import { ref } from "vue";
+
 const {
     i18n: { t }, // 解构实例用具t 访问语言变量
     currentLocale, //当前国际化
@@ -118,6 +120,7 @@ const handleMenuClick: MenuProps["onClick"] = (e) => {
 
     // 当前页面为包管理与区服管理页面时重新请求数据
     const href = window.location.href;
+
     if (href.includes("app")) {
         server.findListByGameId(gameId);
 

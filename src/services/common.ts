@@ -1,16 +1,12 @@
-import request from '@/utils/request';
+import { $ajax } from "@/services/request";
 
 /**
  * 字典
  * @param params
  * @returns
  */
-export async function findDictByCode(params: {
-    dictCode: string,
-}) {
-    return request('/system/findDictByCode', {
-        data: params,
-    });
+export async function findDictByCode(params: { dictCode: string }) {
+    return $ajax('/system/findDictByCode', {data: params, method});
 }
 
 /**
@@ -21,7 +17,7 @@ export async function findDictByCode(params: {
 export async function findDictByCodeByGms(params: {
     dictCode: string,
 }) {
-    return request('/game/dict/findDictByCode', {
+    return $ajax('/game/dict/findDictByCode', {
         data: params,
     });
 }

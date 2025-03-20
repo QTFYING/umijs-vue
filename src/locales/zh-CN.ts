@@ -71,7 +71,7 @@ export default {
             message: {
                 requestError: "请求错误",
                 tip: "提示",
-                network: "网络异常",
+                networknetwork: "网络异常",
             },
             description: {
                 permission: "没有权限",

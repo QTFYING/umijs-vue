@@ -3,14 +3,8 @@
     <a-card v-if="user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
       <a-form layout="inline" :model="formState">
         <a-form-item name="queryValue">
-          <a-input-search
-            allowClear
-            v-model:value="formState.queryValue"
-            :placeholder="t('game.query.placeholder')"
-            style="width: 300px"
-            enter-button
-            @search="onFinish"
-          />
+          <a-input-search allowClear v-model:value="formState.queryValue" :placeholder="t('game.query.placeholder')"
+            style="width: 300px" enter-button @search="onFinish" />
         </a-form-item>
         <a-button type="primary" @click="handleToAdd" style="margin-left: 30px">
           <template #icon>
@@ -22,14 +16,8 @@
     </a-card>
   </QueryContainer>
   <a-card style="margin-top: 10px">
-    <a-table
-      :dataSource="game.gameList"
-      :columns="columns"
-      :pagination="pagination"
-      :loading="game.loading"
-      :scroll="{ x: 1200 }"
-      size="small"
-    >
+    <a-table :dataSource="game.gameList" :columns="columns" :pagination="pagination" :loading="game.loading"
+      :scroll="{ x: 1200 }" size="small">
       <template #bodyCell="{ column, text, record }">
         <template v-if="column.dataIndex === 'operation'">
           <a-space>
@@ -41,98 +29,52 @@
     </a-table>
   </a-card>
   <template>
-    <a-modal
-      v-model:visible="visible"
-      :maskClosable="false"
-      :confirmLoading="confirmLoading"
-      :destroyOnClose="true"
-      :width="800"
-      :title="opt === 'add' ? t('game.button.add') : t('game.button.edit')"
-      @ok="onOk"
-    >
-      <a-form
-        ref="modalFormRef"
-        name="myGameForm"
-        :model="currentGame"
-        v-bind="layout"
-      >
-        <a-form-item
-          name="name"
-          :label="t('game.column.name')"
-          :rules="[{ required: true, message: t('game.form.message.name') }]"
-        >
-          <a-input
-            v-model:value="currentGame.name"
-            :maxlength="20"
-            :placeholder="t('game.form.message.name')"
-          />
+    <a-modal v-model:visible="visible" :maskClosable="false" :confirmLoading="confirmLoading" :destroyOnClose="true"
+      :width="800" :title="opt === 'add' ? t('game.button.add') : t('game.button.edit')" @ok="onOk">
+      <a-form ref="modalFormRef" name="myGameForm" :model="currentGame" v-bind="layout">
+        <a-form-item name="name" :label="t('game.column.name')"
+          :rules="[{ required: true, message: t('game.form.message.name') }]">
+          <a-input v-model:value="currentGame.name" :maxlength="20" :placeholder="t('game.form.message.name')" />
         </a-form-item>
-        <a-form-item
-          name="number"
-          :label="t('game.column.number')"
-          :rules="[{ required: true, message: t('game.form.message.number') }]"
-        >
-          <a-input
-            v-model:value="currentGame.number"
-            :maxlength="20"
-            :placeholder="t('game.form.message.number')"
-          />
+        <a-form-item name="number" :label="t('game.column.number')"
+          :rules="[{ required: true, message: t('game.form.message.number') }]">
+          <a-input v-model:value="currentGame.number" :maxlength="20" :placeholder="t('game.form.message.number')" />
         </a-form-item>
         <a-form-item name="keyWord" :label="t('game.column.keyWord')">
-          <a-input
-            v-model:value="currentGame.keyWord"
-            :maxlength="50"
-            :placeholder="t('game.form.message.keyWord')"
-          />
+          <a-input v-model:value="currentGame.keyWord" :maxlength="50" :placeholder="t('game.form.message.keyWord')" />
         </a-form-item>
-        <a-form-item
-          name="type"
-          :label="t('game.column.type')"
-          :rules="[{ required: true, message: t('game.form.message.type') }]"
-        >
-          <a-select
-            v-model:value="currentGame.type"
-            :placeholder="t('game.form.message.type')"
-            :options="game.gameTypeList ?? []"
-          >
+        <a-form-item name="type" :label="t('game.column.type')"
+          :rules="[{ required: true, message: t('game.form.message.type') }]">
+          <a-select v-model:value="currentGame.type" :placeholder="t('game.form.message.type')"
+            :options="game.gameTypeList ?? []">
           </a-select>
         </a-form-item>
-        <a-form-item
-          name="state"
-          :label="t('game.column.state')"
-          :rules="[{ required: true, message: t('game.form.message.state') }]"
-        >
-          <a-select
-            v-model:value="currentGame.state"
-            :placeholder="t('game.form.message.state')"
-            :options="game.gameStateList ?? []"
-          >
+        <a-form-item name="state" :label="t('game.column.state')"
+          :rules="[{ required: true, message: t('game.form.message.state') }]">
+          <a-select v-model:value="currentGame.state" :placeholder="t('game.form.message.state')"
+            :options="game.gameStateList ?? []">
           </a-select>
         </a-form-item>
         <a-form-item name="info" :label="t('game.column.info')">
-          <a-textarea
-            v-model:value="currentGame.info"
-            show-count
-            :maxlength="200"
-            :placeholder="t('game.form.message.info')"
-          />
+          <a-textarea v-model:value="currentGame.info" show-count :maxlength="200"
+            :placeholder="t('game.form.message.info')" />
         </a-form-item>
       </a-form>
     </a-modal>
   </template>
 </template>
 <script lang="ts" setup>
-import { useGameStore } from "@/stores/game";
-import { showConfirm } from "@/utils/showConfirm";
-import { FormInstance, message, notification } from "ant-design-vue";
-import { computed, reactive, ref, watch, onBeforeUnmount } from "vue";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons-vue";
-import { useUserStore } from "@/stores/user";
-import QueryContainer from "@/components/QueryContainer.vue";
-import type { UnwrapRef } from "vue";
-import useLocale from "@/utils/useLocale";
-import { isAdmin } from "@/utils/auth";
+import QueryContainer from "@/components/query_container.vue";
 import { Dictionary } from "@/constants";
+import { useGameStore } from "@/stores/game";
+import { useUserStore } from "@/stores/user";
+import { isAdmin } from "@/utils/auth";
+import { showConfirm } from "@/utils/showConfirm";
+import useLocale from "@/utils/useLocale";
+import { PlusOutlined } from "@ant-design/icons-vue";
+import { FormInstance, message } from "ant-design-vue";
+import type { UnwrapRef } from "vue";
+import { computed, onBeforeUnmount, reactive, ref, watch } from "vue";
 const {
   i18n: { t },
 } = useLocale();

@@ -1,10 +1,10 @@
-import request from '@/utils/request';
+import { $ajax } from "@/services/request";
 
 export async function login(params: {
 	username: string,
 	password: string,
 }) {
-	return request('/login', {
+	return $ajax('/login', {
 		data: params,
 		requestType: 'form',
 	});
@@ -12,7 +12,7 @@ export async function login(params: {
 
 export async function logout(params: {
 }) {
-	return request('/logout', {
+	return $ajax('/logout', {
 		data: params,
 	});
 }

@@ -81,11 +81,8 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
             username: formValues.value.account,
             password: Md5.hashStr(formValues.value.password).toString()
         };
-
-        console.log('xxxx-1', formData)
-
         await user.login(formValues.value.account, Md5.hashStr(formValues.value.password).toString());
-        ElMessage.success('登录成功');
+        if (user.currentUser) router.replace("/home");
     } catch (error: any) {
         ElMessage.error(error?.message || '请求失败，请稍候重试~');
     }

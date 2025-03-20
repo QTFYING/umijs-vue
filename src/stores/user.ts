@@ -2,7 +2,7 @@ import { Dictionary } from '@/constants'
 import { defineStore } from 'pinia'
 import { Md5 } from 'ts-md5'
 import * as commonServ from '../services/common'
-import * as logServ from '../services/login'
+import * as loginService from '../services/login'
 import * as userServ from '../services/user'
 import { useGameStore } from './game'
 
@@ -32,12 +32,14 @@ export const useUserStore = defineStore('user', {
 				queryValue: '',
 			})
 		},
+
 		/**
 		 * 退出
 		 */
 		async logout() {
-			return await logServ.logout({})
+			return await loginService.logout({})
 		},
+
 		/**
 		 * 清除登录信息
 		 */
@@ -52,14 +54,16 @@ export const useUserStore = defineStore('user', {
 			const game = useGameStore()
 			game.clearCurrentGame()
 		},
+
 		/**
 		 * 登录
 		 * @param username
 		 * @param password
 		 */
+
 		async login(username, password) {
 			this.loginLoading = true
-			const res = await logServ.login({ username, password })
+			const res = await loginService.login({ username, password })
 			if (res?.data) {
 				const user = res.data
 				sessionStorage.setItem('token', user?.token)
@@ -70,6 +74,7 @@ export const useUserStore = defineStore('user', {
 			}
 			this.loginLoading = false
 		},
+
 		/**
 		 * 获取用户信息
 		 */
@@ -82,6 +87,7 @@ export const useUserStore = defineStore('user', {
 				})
 			}
 		},
+
 		/**
 		 * 用户管理列表
 		 * @param page
@@ -99,6 +105,7 @@ export const useUserStore = defineStore('user', {
 			}
 			this.loading = false
 		},
+
 		/**
 		 * 添加用户
 		 * @param params
@@ -114,6 +121,7 @@ export const useUserStore = defineStore('user', {
 			}
 			return res
 		},
+
 		/**
 		 * 修改用户
 		 * @param id
@@ -129,6 +137,7 @@ export const useUserStore = defineStore('user', {
 			}
 			return res
 		},
+
 		/**
 		 * 查询用户
 		 * @param id
@@ -140,6 +149,7 @@ export const useUserStore = defineStore('user', {
 				return res.data
 			}
 		},
+
 		/**
 		 * 查询性别，角色字典
 		 * @param dictCode
@@ -151,6 +161,7 @@ export const useUserStore = defineStore('user', {
 				if (dictCode === Dictionary.role) this.roleList = res.data
 			}
 		},
+
 		/**
 		 * 删除用户
 		 * @param dictCode
@@ -162,6 +173,7 @@ export const useUserStore = defineStore('user', {
 				return true
 			}
 		},
+
 		/**
 		 * 搜索用户
 		 * @param value

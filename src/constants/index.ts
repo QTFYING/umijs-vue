@@ -1,10 +1,10 @@
-export const defaultLang = 'enUS'
+export const defaultLang = 'zhCN'
 
 export enum LocaleLang {
     enUS = 'English',
     zhCN = '简体中文',
 }
-/**字典枚举 */
+/** 字典枚举 */
 export enum Dictionary {
     /**游戏类型 */
     type = 'type',

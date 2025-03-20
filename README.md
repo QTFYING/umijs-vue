@@ -7,9 +7,7 @@
 - [x] 脚手架配置、代码规范配置（eslint、stylelint）
 - [ ] 模块新增方法、路由配置方法
 - [ ] 国际化配置（vue-i18n）
-- [ ] todo1
-- [ ] todo2
-- [ ] mock方案
+- [x] mock方案
 - [ ] vue3 + ts + pinia + element-plus + echarts + quill2
 - [ ] axios封装 + service请求示例
 - [ ] 权限管理

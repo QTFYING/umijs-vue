@@ -1,15 +1,11 @@
 import { ResultVO } from "@/types/common";
 import eventBus, { EVENT_TYPE } from "@/utils/eventBus";
-import { notification } from 'ant-design-vue';
+import { ElNotification } from 'element-plus';
 import { extend, RequestOptionsInit } from 'umi-request';
 import { i18n } from '../i18n';
 const { t } = i18n.global;
 
-const isEnvProduction = process.env.NODE_ENV === "production";
 
-export default function fetch(url: string, options: RequestOptionsInit) {
-    return request<ResultVO>(url, { method: 'POST', ...options })
-}
 
 const codeMessage: { [status: number]: string } = {
     200: '服务器成功返回请求的数据。',
@@ -35,24 +31,25 @@ const error_code = [
     { result: '10001', message: 'token刷新成功' },
 ]
 
+let $notify;
+
 /** 异常处理程序 */
 const errorHandler = (error: { response: Response }): any => {
-
     const { response } = error;
 
     if (response && response.status) {
-        const errorText = codeMessage[response.status] || response.statusText;
         const { status, url } = response;
-
-        notification.error({
+        $notify = ElNotification({
+            title: '1',
             message: `${t('notification.error.message.requestError')} ${status}: ${url}`,
-            description: errorText,
-        });
+            type: 'error',
+        })
     } else if (!response) {
-        notification.destroy()
-        notification.error({
-            description: t('notification.error.description.network'),
+        if($notify) $notify.close()
+        $notify = ElNotification({
+            title: '2',
             message: t('notification.error.message.network'),
+            type: 'error',
         });
     }
 
@@ -80,11 +77,7 @@ const responseLog = (response: Response, res: any, options: any) => {
     );
 };
 
-const request = extend({
-    prefix: process.env.apiUrl,
-    errorHandler, // 默认错误处理
-    timeout: 100000,
-});
+const request = extend({prefix: process.env.apiUrl, errorHandler, responseLog, timeout: 100000,});
 
 const toLoign = () => {
     eventBus.emit(EVENT_TYPE.LOGOUT, '')
@@ -116,10 +109,14 @@ request.interceptors.response.use(async (response, options): Promise<any> => {
     const findItem: any = error_code.find(item => res.result === item.result)
     if (['10001', '11002', '11000'].includes(findItem?.result)) toLoign()
 
-    if (res.code !== '0' && res.message) {
-        notification.destroy()
-        notification.error({ message: t('notification.error.message.tip'), description: res.message })
+    if (res.code !== '0000' && res.message) {
+        if ($notify) $notify.close();
+        $notify = ElNotification({ message: t('notification.error.message.tip'), title: '3', type: 'error' })
     }
 
     return response;
 });
+
+export const $ajax =  function (url: string, options: RequestOptionsInit) {
+    return request<ResultVO>(url, { method: 'POST', ...options })
+}

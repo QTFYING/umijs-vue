@@ -1,5 +1,5 @@
+import { $ajax } from '@/services/request';
 import { IGame } from '@/types/game';
-import request from '@/utils/request';
 
 /**
  * 游戏管理列表
@@ -11,7 +11,7 @@ export async function findGameListPage(params: {
     row: number,
     queryValue: string,
 }) {
-    return request('/game/findGameListPage', {
+    return $ajax('/game/findGameListPage', {
         data: params,
     });
 }
@@ -22,7 +22,7 @@ export async function findGameListPage(params: {
  * @returns
  */
 export async function addGame(params: IGame) {
-    return request('/game/addGame', {
+    return $ajax('/game/addGame', {
         data: params,
     });
 }
@@ -33,7 +33,7 @@ export async function addGame(params: IGame) {
  * @returns
  */
 export async function upateGame(params: IGame) {
-    return request('/game/upateGame', {
+    return $ajax('/game/upateGame', {
         data: params,
     });
 }
@@ -46,7 +46,7 @@ export async function upateGame(params: IGame) {
 export async function findGameById(params: {
     id: string,
 }) {
-    return request('/game/findGameById', {
+    return $ajax('/game/findGameById', {
         data: params,
     });
 }
@@ -58,7 +58,7 @@ export async function findGameById(params: {
 export async function deleteGameById(params: {
     id: string,
 }) {
-    return request('/game/deleteGameById', {
+    return $ajax('/game/deleteGameById', {
         data: params,
     });
 }
@@ -70,7 +70,7 @@ export async function deleteGameById(params: {
  */
 export async function findGameList(params: {
 }) {
-    return request('/game/findGameList', {
+    return $ajax('/game/findGameList', {
         data: params,
     });
 }
@@ -82,7 +82,7 @@ export async function findGameList(params: {
  */
 export async function findGamesByManager(params: {
 }) {
-    return request('/manager/findGamesByManager', {
+    return $ajax('/manager/findGamesByManager', {
         data: params,
     });
 }
