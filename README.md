@@ -5,16 +5,17 @@
 ### 功能包含
 
 - [x] 脚手架配置、代码规范配置（eslint、stylelint）
-- [ ] 模块新增方法、路由配置方法
-- [ ] 国际化配置（vue-i18n）
+- [x] 模块新增方法、路由配置方法
+- [x] 国际化配置（vue-i18n）
 - [x] mock方案
-- [ ] vue3 + ts + pinia + element-plus + echarts + quill2
+- [x] vue3 + ts + pinia + element-plus
 - [x] axios封装 + service请求示例
-- [ ] 权限管理
+- [ ] 权限管理，动态菜单
+- [ ] 面包屑
 - [ ] 接入tailwindcss
 - [ ] proxy代理
 - [ ] 环境区分（pro、env、rel）
-- [ ] 打包配置（vite & webpack）
+- [ ] 打包配置
 
 ### 远期规划
 
@@ -28,6 +29,7 @@
 - [ ] 流
 - [ ] 异常处理（开源 + 自建）
 - [ ] Sentry
+- [ ] 接入echarts + quill2
 
 ### 移动端适配
 

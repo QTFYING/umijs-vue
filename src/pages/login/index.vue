@@ -12,7 +12,7 @@
 
     <el-col :span="8" class="login-content__right">
       <div class="login-content__wrapper">
-        <img src="@/assets/company_logo.png" alt="slogan" width="250" />
+        <img src="@/assets/company_logo.png" alt="company logo" width="250" />
         <el-card style="width: 480px; margin-top: 40px">
           <div class="card-header">
             <h2>登录</h2>
@@ -44,7 +44,7 @@
 
             <el-row justify="space-between">
               <el-form-item prop="isChecked">
-                <el-checkbox v-model="formValues.password" label="记住密码" />
+                <el-checkbox v-model="formValues.isChecked" label="记住密码" />
               </el-form-item>
 
               <el-form-item>
@@ -91,9 +91,7 @@
     isChecked: true,
   });
 
-  const onSubmit = async (formEl: FormInstance | undefined) => {
-    if (!formEl) return;
-
+  const onSubmit = async () => {
     try {
       const formData = {
         username: formValues.value.account,

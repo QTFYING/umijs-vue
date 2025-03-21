@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "cits",
-    "umijs"
-  ]
+  "cSpell.words": ["cits", "umijs"],
+  "vue-i18n.i18nPaths": "src/locales,src/locales/locale"
 }

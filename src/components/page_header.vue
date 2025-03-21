@@ -36,12 +36,10 @@
 <script lang="ts" setup>
   import { LocaleLang } from '@/constants';
   import { useAppStore } from '@/stores/app';
-  import { useGameStore } from '@/stores/game';
   import { useServerStore } from '@/stores/server';
   import { useUserStore } from '@/stores/user';
   import eventBus, { EVENT_TYPE } from '@/utils/eventBus';
   import useLocale from '@/utils/useLocale';
-  import { LogoutOutlined, SearchOutlined } from '@ant-design/icons-vue';
 
   import { ref } from 'vue';
 
@@ -52,7 +50,6 @@
   } = useLocale();
 
   const user = useUserStore();
-  const game = useGameStore();
   const server = useServerStore();
   const app = useAppStore();
 
@@ -63,40 +60,9 @@
     }
   };
 
-  game.findGamesByManager();
-
   const activeIndex = ref('1');
   const handleSelect = (key: string, keyPath: string[]) => {
     console.log(key, keyPath);
-  };
-
-  /**
-   * 切换游戏
-   * @param e
-   */
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    const gameId = `${e.key}`;
-    game.onChangeGame(gameId);
-
-    // 当前页面为包管理与区服管理页面时重新请求数据
-    const href = window.location.href;
-
-    if (href.includes('app')) {
-      server.findListByGameId(gameId);
-
-      app.unmountState();
-
-      eventBus.emit(EVENT_TYPE.APP_LIST_CHANGE_BY_GAME, gameId);
-    }
-    if (href.includes('server')) {
-      server.findList(1, 10, gameId);
-    }
-  };
-
-  const searchValue = ref<string>('');
-
-  const onSearch = () => {
-    console.log('use value', searchValue.value);
   };
 
   /**

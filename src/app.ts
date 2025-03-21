@@ -11,28 +11,48 @@ import { useGlobalStore } from './stores/global';
  */
 
 const notificationInstance = ElNotification({
-    // 你可以在这里设置全局配置，如位置、持续时间等
-    position: 'top-right',
-    duration: 5000,
-  });
+  // 你可以在这里设置全局配置，如位置、持续时间等
+  position: 'top-right',
+  duration: 5000,
+});
 
-  // 将实例存储在 Vue 的原型上
+// 将实例存储在 Vue 的原型上
 export async function onAppCreated({ app }: any) {
-    // 注册全局实例 - notify
-    app.config.globalProperties.$notify = notificationInstance;
+  // 注册全局实例 - notify
+  app.config.globalProperties.$notify = notificationInstance;
 
-    app.use(createPinia())
-    app.use(i18n)
-    app.use(ElementPlus)
+  app.use(createPinia());
+  app.use(i18n);
+  app.use(ElementPlus);
 }
 
 export async function onMounted({ app, router }: any) {
-    console.log('onMounted', app, router);
-    // 路由拦截
-    router.beforeEach((to: any, from: any, next: () => void) => {
-        const global = useGlobalStore()
-        global.setSelectedKeys(to.path)
-        // console.log('router beforeEach', to, from);
-        next();
-    });
+  console.log('onMounted', app, router);
+
+  window.GLOBAL = { user: { userName: '123', userId: '1312' }, menus: [] };
+
+  // 路由拦截
+  router.beforeEach((to: any, from: any, next: () => void) => {
+    const global = useGlobalStore();
+    global.setSelectedKeys(to.path);
+    // console.log('router beforeEach', to, from);
+    next();
+  });
 }
+
+let extraRoutes: any[] = [];
+
+// 获取routes数据
+export const render = (oldRender) => {
+  Promise.resolve().then((res: any) => {
+    extraRoutes = [
+      {
+        path: '/home',
+        name: 'home',
+        component: '@/pages/home',
+      },
+    ];
+    console.log('=====routes======', extraRoutes);
+    oldRender();
+  });
+};

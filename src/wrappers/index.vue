@@ -14,7 +14,7 @@
 
   if (!user.currentUser) {
     if (user.token) {
-      user.getManagerInfo();
+      // todo
     } else {
       router.replace('/login');
     }
