@@ -1,38 +1,36 @@
 <template>
-  <div class="page-header-box">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" @select="handleSelect">
-      <el-menu-item index="0">
-        <img src="../assets/yay.jpg" width="50" class="logo" alt="Element logo" />
-      </el-menu-item>
+  <el-menu :default-active="activeIndex" mode="horizontal" :ellipsis="false" @select="handleSelect">
+    <el-menu-item index="0">
+      <img src="../assets/yay.jpg" width="50" class="logo" alt="Element logo" />
+    </el-menu-item>
 
-      <el-menu-item index="1">企业管理</el-menu-item>
-      <el-menu-item index="2">供应链管理</el-menu-item>
-      <el-menu-item index="3">财务管理</el-menu-item>
-      <el-menu-item index="4">支付管理</el-menu-item>
+    <el-menu-item index="1"> <router-link to="/game">企业管理</router-link> </el-menu-item>
+    <el-menu-item index="2"> <router-link to="/user">供应链管理</router-link></el-menu-item>
+    <el-menu-item index="3">财务管理</el-menu-item>
+    <el-menu-item index="4">支付管理</el-menu-item>
 
-      <el-sub-menu index="6">
-        <template #title>{{ LocaleLang[currentLocale] }}</template>
-        <el-menu-item v-for="(item, key) in LocaleLang" :index="key">{{ item }}</el-menu-item>
-      </el-sub-menu>
+    <el-sub-menu index="6">
+      <template #title>{{ LocaleLang[currentLocale] }}</template>
+      <el-menu-item v-for="(item, key) in LocaleLang" :index="key">{{ item }}</el-menu-item>
+    </el-sub-menu>
 
-      <el-menu-item index="5">
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            <el-avatar :size="30" :src="squareUrl" />
-            <span class="name">{{ user.currentUser?.username }}</span>
-          </span>
+    <el-menu-item index="5">
+      <el-dropdown>
+        <span class="el-dropdown-link">
+          <el-avatar :size="30" :src="squareUrl" />
+          <span class="name">{{ user.currentUser?.username }}</span>
+        </span>
 
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item @click="logout">
-                {{ t('account.logout') }}
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-      </el-menu-item>
-    </el-menu>
-  </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="logout">
+              {{ t('account.logout') }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </el-menu-item>
+  </el-menu>
 </template>
 
 <script lang="ts" setup>
@@ -109,69 +107,4 @@
   };
 </script>
 
-<style lang="less">
-  .page-header-box {
-    height: 60px;
-    line-height: 60px;
-    background: #002140;
-    padding: 0 10px;
-    position: fixed;
-    width: 100%;
-    min-width: 954px;
-    z-index: 9;
-
-    .left {
-      display: flex;
-      align-items: center;
-
-      .logo {
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        margin: 0 20px 0 10px;
-      }
-
-      .game-down-box {
-        color: #fff;
-        font-size: 20px;
-      }
-    }
-
-    .right {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-      .avatar-box {
-        margin: 0 10px 0 30px;
-        text-align: center;
-      }
-
-      .avatar {
-        color: #f56a00;
-        background-color: #fde3cf;
-        margin-bottom: 5px;
-      }
-
-      .name {
-        margin-left: 10px;
-        color: #fde3cf;
-      }
-
-      .lang-txt {
-        color: #fff;
-        border: 1px #fde3cf solid;
-        width: 80px;
-        display: inline-block;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-      }
-
-      .ant-input,
-      .ant-input-search-button {
-        height: 32px !important;
-      }
-    }
-  }
-</style>
+<style lang="less"></style>

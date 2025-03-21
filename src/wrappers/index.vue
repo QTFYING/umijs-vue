@@ -1,5 +1,5 @@
 <template>
-  <BasicLayout v-if="!!user.currentUser || !!user.token">
+  <BasicLayout>
     <router-view></router-view>
   </BasicLayout>
 </template>

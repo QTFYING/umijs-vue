@@ -2,25 +2,18 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: '@/pages/login/index.vue'
+    component: '@/pages/login',
   },
   {
     path: '/',
-    component: '@/layouts/index.vue',
-    wrappers: ['@/wrappers/index.vue'],
+    component: '@/layouts/index',
+    wrappers: ['@/wrappers/index'],
     routes: [
-      { path: '/home', component: '@/pages/home/index.vue' },
-      { path: '/game', component: '@/pages/game/index.vue' },
-      { path: '/user', component: '@/pages/user/index.vue' },
-      {
-        path: '/',
-        redirect: '/home',
-      },
-      {
-        path: '/:catchAll(.*)',
-        component: '@/pages/404.vue',
-      },
-    ]
+      { path: '/home', component: '@/pages/home' },
+      { path: '/game', component: '@/pages/game' },
+      { path: '/user', component: '@/pages/user' },
+      { path: '/', redirect: '/home' },
+      { path: '/:catchAll(.*)', component: '@/pages/404.vue' },
+    ],
   },
-
-]
+];

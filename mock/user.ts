@@ -1,7 +1,7 @@
 import mockjs from 'mockjs';
 
 export default {
-  // 登录接口返回数据格式
+  // 登录
   'POST /cits/osp/login': {
     code: '200',
     message: '登录成功',
@@ -10,6 +10,13 @@ export default {
       role: 'ROLE_SUPER_ADMIN',
       token: 'xxxxxxxxxxxxx',
     },
+  },
+
+  // 退出
+  'GET /cits/osp/logout': {
+    code: '200',
+    message: '登录成功',
+    data: null,
   },
 
   'GET /api/tags': mockjs.mock({

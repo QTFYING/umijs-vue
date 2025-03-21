@@ -1,51 +1,54 @@
 <template>
   <el-container>
-    <PageHeader />
+    <el-header>
+      <PageHeader />
+    </el-header>
 
-    <el-aside v-model:collapsed="collapsed" :trigger="null" collapsible>
-      <!-- <div class="logo" /> -->
-      <el-menu v-model:selectedKeys="global.selectedKeys" @click="handleClick">
-        <el-menu-item index="1">
-          <span>{{ t('menu.home') }}</span>
-        </el-menu-item>
+    <el-container>
+      <el-aside width="200px">
+        <el-menu>
+          <el-menu-item index="1">
+            <span>{{ t('menu.home') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="2">
-          <span>{{ t('menu.monitor') }}</span>
-        </el-menu-item>
+          <el-menu-item index="2">
+            <span>{{ t('menu.monitor') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="3">
-          <span>{{ t('menu.app') }}</span>
-        </el-menu-item>
+          <el-menu-item index="3">
+            <span>{{ t('menu.app') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="4">
-          <span>{{ t('menu.server') }} </span>
-        </el-menu-item>
+          <el-menu-item index="4">
+            <span>{{ t('menu.server') }} </span>
+          </el-menu-item>
 
-        <el-menu-item index="5">
-          <span>{{ t('menu.billingPoint') }}</span>
-        </el-menu-item>
+          <el-menu-item index="5">
+            <span>{{ t('menu.billingPoint') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="6">
-          <span>{{ t('menu.agent') }}</span>
-        </el-menu-item>
+          <el-menu-item index="6">
+            <span>{{ t('menu.agent') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="7">
-          <span>{{ t('menu.service') }}</span>
-        </el-menu-item>
+          <el-menu-item index="7">
+            <span>{{ t('menu.service') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="8" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
-          <span>{{ t('menu.game') }}</span>
-        </el-menu-item>
+          <el-menu-item index="8" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
+            <span>{{ t('menu.game') }}</span>
+          </el-menu-item>
 
-        <el-menu-item index="9" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
-          <span>{{ t('menu.user') }}</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
+          <el-menu-item index="9" v-if="!!user.currentUser && user.currentUser?.role === 'ROLE_SUPER_ADMIN'">
+            <span>{{ t('menu.user') }}</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
 
-    <el-main>
-      <slot></slot>
-    </el-main>
+      <el-main>
+        <slot></slot>
+      </el-main>
+    </el-container>
   </el-container>
 </template>
 
@@ -69,7 +72,7 @@
   const user = useUserStore();
 
   const handleClick: MenuProps['onClick'] = (e) => {
-    router.push(`${e.key}`);
+    router.push(`13213`);
   };
 </script>
 

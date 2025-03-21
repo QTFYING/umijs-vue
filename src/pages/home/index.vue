@@ -1,9 +1,9 @@
 <template>
-	<div>我是{{ name }} </div>
+  <div>我是{{ name }}</div>
 </template>
+
 <script lang="ts" setup>
-import { ref } from "vue";
+  import { ref } from 'vue';
 
-let name = ref("首页");
-
+  let name = ref('首页');
 </script>
