@@ -1,13 +1,22 @@
 <template>
-  <el-menu :default-active="activeIndex" mode="horizontal" :ellipsis="false" @select="handleSelect">
+  <el-menu
+    :default-active="activeIndex2"
+    class="el-menu-demo"
+    mode="horizontal"
+    background-color="#001133"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    @select="handleSelect"
+  >
     <el-menu-item index="0">
-      <img src="../assets/yay.jpg" width="50" class="logo" alt="Element logo" />
+      <el-space style="width: 150px" spacer="|" @click="router.push('/home')">
+        <h1>LOGO</h1>
+        <h1>国旅运通</h1>
+      </el-space>
     </el-menu-item>
 
-    <el-menu-item index="1"> <router-link to="/game">企业管理</router-link> </el-menu-item>
+    <el-menu-item index="1"> <router-link to="/system">系统管理</router-link> </el-menu-item>
     <el-menu-item index="2"> <router-link to="/user">供应链管理</router-link></el-menu-item>
-    <el-menu-item index="3">财务管理</el-menu-item>
-    <el-menu-item index="4">支付管理</el-menu-item>
 
     <el-sub-menu index="6">
       <template #title>{{ LocaleLang[currentLocale] }}</template>
@@ -40,6 +49,8 @@
   import { useUserStore } from '@/stores/user';
   import eventBus, { EVENT_TYPE } from '@/utils/eventBus';
   import useLocale from '@/utils/useLocale';
+  import { useRouter } from 'umi';
+  const router = useRouter();
 
   import { ref } from 'vue';
 

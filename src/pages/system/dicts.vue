@@ -1,5 +1,5 @@
 <template>
-  <div>我是游戏</div>
+  <div>数据字典</div>
 </template>
 
 <script lang="ts" setup></script>
